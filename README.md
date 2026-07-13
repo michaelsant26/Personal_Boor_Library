@@ -80,3 +80,9 @@ Beberapa hal yang bisa ditambahkan untuk memperkaya proyek ini di portofolio:
 - Export data ke CSV/PDF
 - API RESTful (JSON) di samping tampilan web
 - Deploy ke Render/Railway/PythonAnywhere agar bisa diakses publik
+
+## Screenshots
+
+![Tambah Buku](IMG-20260714-WA0002.jpg)
+![Edit Buku](IMG-20260714-WA0003.jpg)
+![Dashboard](IMG-20260714-WA0004.jpg)
