@@ -1,8 +1,8 @@
-# 📚 Personal Book Library — Flask CRUD App
+# Personal Book Library — Flask CRUD App
 
 Aplikasi web sederhana untuk mengelola koleksi buku pribadi, dibuat dengan **Python (Flask)** dan **SQLite**. Cocok dijadikan proyek portofolio karena mendemonstrasikan operasi **CRUD (Create, Read, Update, Delete)** secara penuh, ditambah fitur pencarian dan filter status.
 
-## ✨ Fitur
+## Fitur
 
 - **Create** — Tambah buku baru (judul, penulis, genre, tahun, status baca, rating)
 - **Read** — Lihat daftar semua buku, statistik koleksi, dan detail per buku
@@ -13,13 +13,13 @@ Aplikasi web sederhana untuk mengelola koleksi buku pribadi, dibuat dengan **Pyt
 - Tampilan rating bintang
 - UI responsif dengan Bootstrap 5 + desain custom
 
-## 🛠️ Teknologi
+## Teknologi
 
 - **Backend**: Python, Flask, Flask-SQLAlchemy
 - **Database**: SQLite (otomatis dibuat saat pertama kali dijalankan)
 - **Frontend**: HTML, Jinja2 Templates, Bootstrap 5, Font Awesome
 
-## 🚀 Cara Menjalankan
+## Cara Menjalankan
 
 1. Clone / download folder proyek ini, lalu masuk ke direktorinya:
 
@@ -80,7 +80,3 @@ Beberapa hal yang bisa ditambahkan untuk memperkaya proyek ini di portofolio:
 - Export data ke CSV/PDF
 - API RESTful (JSON) di samping tampilan web
 - Deploy ke Render/Railway/PythonAnywhere agar bisa diakses publik
-
----
-
-Dibuat sebagai contoh proyek CRUD sederhana menggunakan Flask.
