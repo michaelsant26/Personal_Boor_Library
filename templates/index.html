@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %}Koleksi Buku{% endblock %}
+
+{% block content %}
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="stat-number">{{ total_books }}</div>
+            <div class="stat-label">Total Buku</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="stat-number">{{ total_read }}</div>
+            <div class="stat-label">Selesai Dibaca</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stat-card">
+            <div class="stat-number">{{ total_books - total_read }}</div>
+            <div class="stat-label">Belum Selesai</div>
+        </div>
+    </div>
+</div>
+
+<form method="get" class="row g-2 mb-4">
+    <div class="col-md-7">
+        <input type="text" name="search" class="form-control" placeholder="Cari judul atau penulis..." value="{{ search_query }}">
+    </div>
+    <div class="col-md-3">
+        <select name="status" class="form-select">
+            <option value="">Semua Status</option>
+            <option value="Belum Dibaca" {% if status_filter == 'Belum Dibaca' %}selected{% endif %}>Belum Dibaca</option>
+            <option value="Sedang Dibaca" {% if status_filter == 'Sedang Dibaca' %}selected{% endif %}>Sedang Dibaca</option>
+            <option value="Selesai Dibaca" {% if status_filter == 'Selesai Dibaca' %}selected{% endif %}>Selesai Dibaca</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-primary w-100"><i class="fa-solid fa-magnifying-glass"></i> Cari</button>
+    </div>
+</form>
+
+{% if books %}
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for book in books %}
+    <div class="col">
+        <div class="card book-card h-100">
+            <div class="card-body">
+                <span class="badge status-{{ book.status | replace(' ', '') }} mb-2">{{ book.status }}</span>
+                <h5 class="card-title">{{ book.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">oleh {{ book.author }}</h6>
+                <p class="card-text small mb-1">
+                    {% if book.genre %}<i class="fa-solid fa-tag"></i> {{ book.genre }}{% endif %}
+                    {% if book.year %} &middot; <i class="fa-solid fa-calendar"></i> {{ book.year }}{% endif %}
+                </p>
+                <p class="mb-3">
+                    {% for i in range(5) %}
+                        {% if i < book.rating %}
+                            <i class="fa-solid fa-star text-warning"></i>
+                        {% else %}
+                            <i class="fa-regular fa-star text-warning"></i>
+                        {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 d-flex gap-2">
+                <a href="{{ url_for('book_detail', book_id=book.id) }}" class="btn btn-sm btn-outline-secondary flex-fill">
+                    <i class="fa-solid fa-eye"></i> Detail
+                </a>
+                <a href="{{ url_for('edit_book', book_id=book.id) }}" class="btn btn-sm btn-outline-primary flex-fill">
+                    <i class="fa-solid fa-pen"></i> Edit
+                </a>
+                <form action="{{ url_for('delete_book', book_id=book.id) }}" method="post" class="flex-fill"
+                    onsubmit="return confirm('Yakin ingin menghapus buku ini?');">
+                    <button type="submit" class="btn btn-sm btn-outline-danger w-100">
+                        <i class="fa-solid fa-trash"></i> Hapus
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="text-center py-5">
+    <i class="fa-solid fa-book fa-3x text-muted mb-3"></i>
+    <h5 class="text-muted">Belum ada buku ditemukan</h5>
+    <a href="{{ url_for('add_book') }}" class="btn btn-primary mt-2">Tambah buku pertama kamu</a>
+</div>
+{% endif %}
+
+{% endblock %}

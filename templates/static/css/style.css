@@ -1,0 +1,103 @@
+:root {
+    --primary: #6c4ff2;
+    --primary-dark: #5638d6;
+    --bg: #f6f5fb;
+    --card-bg: #ffffff;
+    --text-dark: #2b2740;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.navbar {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    box-shadow: 0 2px 10px rgba(108, 79, 242, 0.25);
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(43, 39, 64, 0.06);
+    border-top: 4px solid var(--primary);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.stat-label {
+    color: #6b6680;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.book-card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 2px 14px rgba(43, 39, 64, 0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(43, 39, 64, 0.14);
+}
+
+.form-card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 2px 14px rgba(43, 39, 64, 0.08);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.status-BelumDibaca {
+    background-color: #ffe3e3;
+    color: #c0392b;
+}
+
+.status-SedangDibaca {
+    background-color: #fff3cd;
+    color: #a3790a;
+}
+
+.status-SelesaiDibaca {
+    background-color: #d4f5dd;
+    color: #1f7a3f;
+}
+
+footer {
+    border-top: 1px solid #e3e0f0;
+}

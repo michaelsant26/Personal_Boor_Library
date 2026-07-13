@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Personal Book Library{% endblock %}</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="{{ url_for('index') }}">
+        <i class="fa-solid fa-book-open"></i> My Book Library
+      </a>
+      <a href="{{ url_for('add_book') }}" class="btn btn-light btn-sm fw-semibold">
+        <i class="fa-solid fa-plus"></i> Tambah Buku
+      </a>
+    </div>
+  </nav>
+
+  <div class="container mt-4 mb-5">
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
+  </div>
+
+  <footer class="text-center text-muted py-4 small">
+    Dibuat dengan Flask &amp; SQLite
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+{
+  // Umum
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+
+  // Python spesifik
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+
+  // HTML spesifik
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+
+  // CSS/SCSS spesifik
+  "[css]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[scss]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+
+  // JSON
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}{{ action }} Buku{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card form-card">
+            <div class="card-body p-4">
+                <h4 class="mb-4"><i class="fa-solid fa-book"></i> {{ action }} Buku</h4>
+
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Judul Buku <span class="text-danger">*</span></label>
+                        <input type="text" name="title" class="form-control" required
+                               value="{{ book.title if book else '' }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Penulis <span class="text-danger">*</span></label>
+                        <input type="text" name="author" class="form-control" required
+                               value="{{ book.author if book else '' }}">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Genre</label>
+                            <input type="text" name="genre" class="form-control"
+                                   value="{{ book.genre if book and book.genre else '' }}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Tahun Terbit</label>
+                            <input type="number" name="year" class="form-control" min="0" max="2100"
+                                   value="{{ book.year if book and book.year else '' }}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Status</label>
+                            <select name="status" class="form-select">
+                                {% set current_status = book.status if book else 'Belum Dibaca' %}
+                                <option value="Belum Dibaca" {% if current_status == 'Belum Dibaca' %}selected{% endif %}>Belum Dibaca</option>
+                                <option value="Sedang Dibaca" {% if current_status == 'Sedang Dibaca' %}selected{% endif %}>Sedang Dibaca</option>
+                                <option value="Selesai Dibaca" {% if current_status == 'Selesai Dibaca' %}selected{% endif %}>Selesai Dibaca</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Rating (0-5)</label>
+                            <input type="number" name="rating" class="form-control" min="0" max="5"
+                                   value="{{ book.rating if book else 0 }}">
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary flex-fill">
+                            <i class="fa-solid fa-floppy-disk"></i> Simpan
+                        </button>
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary flex-fill">
+                            Batal
+                        </a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
